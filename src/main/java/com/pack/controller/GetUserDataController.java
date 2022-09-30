@@ -21,7 +21,6 @@ import com.pack.util.UserCredentials;
 
 @RestController
 @CrossOrigin
-@RequestMapping(PathsClass.CUSTOMER_PATH)
 public class GetUserDataController {
 	
 	static Logger logger = Logger.getLogger(GetUserDataController.class.getName());  
@@ -33,6 +32,8 @@ public class GetUserDataController {
 	public ResponseEntity<StatusModel> getUserData(){
 		logger.info("in getuserData controller.");
 		UserDetails ud = UserCredentials.getUserDetails();
+		logger.info(ud.getUsername());
+		
 		UserModel userModel = null;
 		try {
 			userModel = userModelService.getUserData(ud.getUsername(), ud.getPassword());
@@ -43,11 +44,11 @@ public class GetUserDataController {
 			return new ResponseEntity<>(
 					new StatusModel(
 							LocalDateTime.now().toString(),HttpStatus.FORBIDDEN,
-							ex.getMessage(),PathsClass.CUSTOMER_PATH+PathsClass.GET_USER_DATA_PATH,"no data found"),HttpStatus.FORBIDDEN);
+							ex.getMessage(),PathsClass.GET_USER_DATA_PATH,"no data found"),HttpStatus.FORBIDDEN);
 		}
 		return new ResponseEntity<>(
 				new StatusModel(
 						LocalDateTime.now().toString(),HttpStatus.OK,
-						"no error",PathsClass.CUSTOMER_PATH+PathsClass.GET_USER_DATA_PATH,userModel),HttpStatus.OK);
+						"no error",PathsClass.GET_USER_DATA_PATH,userModel),HttpStatus.OK);
 	}
 }
