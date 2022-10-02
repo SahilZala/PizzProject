@@ -3,6 +3,9 @@ package com.pack.controller;
 import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,11 +31,15 @@ public class GetUserDataController {
 	@Autowired
 	UserModelService userModelService;
 	
+	@Autowired
+	UserCredentials userCredentials;
+	
 	@GetMapping(PathsClass.GET_USER_DATA_PATH)
-	public ResponseEntity<StatusModel> getUserData(){
+	public ResponseEntity<StatusModel> getUserData(HttpServletRequest request,HttpServletResponse response){
+		
 		logger.info("in getuserData controller.");
-		UserDetails ud = UserCredentials.getUserDetails();
-		logger.info(ud.getUsername());
+		
+		UserDetails ud = userCredentials.getUserDetails(request.getHeader("Authorization"));
 		
 		UserModel userModel = null;
 		try {
