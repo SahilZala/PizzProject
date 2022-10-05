@@ -9,4 +9,5 @@ public interface OrderModelService {
 	List<OrderModel> getAllOrders();
 	List<OrderModel> getAllOrdersByUserId(UserModel id);
 	OrderModel updateOrderModel(OrderModel orderModel);
+	OrderModel placeOrderModel(OrderModel orderModel);
 }
