@@ -37,7 +37,6 @@ public class UpdateOrderDataController {
 				"no error",
 				PathsClass.ADMIN_PATH+PathsClass.UPDATE_ADMIN_ORDER_DATA_PATH,
 				orderModelService.updateOrderModel(orderModel)),HttpStatus.OK);
-		
 		}
 		catch(RuntimeException ex) {
 			return new ResponseEntity<>(new StatusModel(LocalDateTime.now().toString(),HttpStatus.BAD_REQUEST,ex.getMessage(),PathsClass.ADMIN_PATH+PathsClass.UPDATE_ADMIN_ORDER_DATA_PATH,"no data"),HttpStatus.BAD_REQUEST);

@@ -23,6 +23,7 @@ import com.pack.util.PathsClass;
 import com.pack.util.UserCredentials;
 
 @RestController
+@CrossOrigin()
 @RequestMapping(PathsClass.CUSTOMER_PATH)
 public class CustomerPlaceOrder {
 	
@@ -34,7 +35,6 @@ public class CustomerPlaceOrder {
 	
 	
 	@RequestMapping(PathsClass.PLACE_ORDER)
-	@CrossOrigin(origins = "*")
 	public ResponseEntity<StatusModel> placeOrder(HttpServletRequest request,@Valid @RequestBody OrderModel orderModel) {
 		
 		try {

@@ -37,6 +37,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 		
 		log.info("in filter");
 		String requestTokenHeader = request.getHeader("Authorization");
+		log.info(requestTokenHeader);
 		
 		String userName = null;
 		String jwtToken = null;
