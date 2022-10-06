@@ -23,7 +23,7 @@ import com.pack.util.PathsClass;
 import com.pack.util.UserCredentials;
 
 @RestController
-@CrossOrigin()
+@CrossOrigin
 @RequestMapping(PathsClass.CUSTOMER_PATH)
 public class CustomerPlaceOrder {
 	

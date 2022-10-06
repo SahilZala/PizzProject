@@ -44,6 +44,13 @@ public class UserModelServiceImpl implements UserModelService{
 		
 		return userModelRepository.save(userModel);
 	}
+
+	@Override
+	public int getUserDataCount() {
+
+		return userModelRepository.getUserDataCount();
+		
+	}
 	
 	
 	

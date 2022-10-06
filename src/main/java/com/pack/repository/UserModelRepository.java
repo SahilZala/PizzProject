@@ -14,4 +14,7 @@ public interface UserModelRepository extends JpaRepository<UserModel, Integer>{
 	@Query("select u from UserModel u where u.userName = ?1 and u.password = ?2")
 	public Optional<UserModel> findByUserNameAndPassword(String userName,String password);
 	
+	@Query("select count(u) from UserModel u")
+	public int getUserDataCount();
+	
 }

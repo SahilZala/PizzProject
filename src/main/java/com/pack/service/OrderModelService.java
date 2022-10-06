@@ -10,4 +10,5 @@ public interface OrderModelService {
 	List<OrderModel> getAllOrdersByUserId(UserModel id);
 	OrderModel updateOrderModel(OrderModel orderModel);
 	OrderModel placeOrderModel(OrderModel orderModel);
+	int getOrderDataCount();
 }

@@ -42,8 +42,13 @@ public class OrderModelServiceImpl implements OrderModelService {
 
 	@Override
 	public OrderModel placeOrderModel(OrderModel orderModel) {
-		// TODO Auto-generated method stub
 		return orderModelRepository.save(orderModel);
+	}
+
+	@Override
+	public int getOrderDataCount() {
+		
+		return (int)orderModelRepository.count();
 	}
 
 	
